@@ -1,33 +1,50 @@
-# Expo Router and native menus
+# Welcome to your Expo app 👋
 
-Use native context menus to quickly manipulate state and data in your UI.
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-<img width="1352" alt="Screenshot 2024-02-19 at 10 39 08 AM" src="https://github.com/expo/examples/assets/9664363/102fbfbe-ca0b-4143-a8d5-2c198c50612f">
+## Get started
 
-## 📦 Features
+1. Install dependencies
 
-- [Expo Router](https://docs.expo.dev/router/introduction/) is used for file-based navigation.
-- [Nativewind](https://www.nativewind.dev/v4/overview/) styling is used for Tailwind/`className` support.
-- Zeego is used on iOS and Android for menus.
-- A custom version of [shadcn/ui • Dropdown](https://ui.shadcn.com/docs/components/dropdown-menu) is used on web for styled menus.
+   ```bash
+   npm install
+   ```
 
-## Launch your own
+2. Start the app
 
-[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-router-menus)
+   ```bash
+   npx expo start
+   ```
 
-## 🚀 How to use
+In the output, you'll find options to open the app in a
 
-> This project does not support Expo Go. Use [development builds](https://docs.expo.dev/develop/development-builds/introduction/) for this example.
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-```sh
-npx create-expo-app -e with-router-menus
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+
+## Get a fresh project
+
+When you're ready, run:
+
+```bash
+npm run reset-project
 ```
 
-- Install with `yarn` or `npm install`.
-- Run `npx expo run:ios` or `npx expo run:android` to build the project.
-- Open in the browser with `npx expo --web`.
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-When you're ready to publish:
+## Learn more
 
-- Deploy the website: `npx eas-cli deploy` — [Learn more](https://docs.expo.dev/eas/hosting/get-started/)
-- Deploy the mobile app: `npx eas-cli build` — [Learn more](https://expo.dev/eas)
+To learn more about developing your project with Expo, look at the following resources:
+
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+
+## Join the community
+
+Join our community of developers creating universal apps.
+
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
