@@ -11,7 +11,6 @@ export default function TabLayout() {
 
         tabBarStyle: {
           backgroundColor: Colors.background,
-          borderTopColor: Colors.border,
           height: 65,
           paddingBottom: 10,
         },
@@ -34,11 +33,15 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="about"
+        name="portfolio"
         options={{
-          tabBarLabel: "Discover",
+          tabBarLabel: "Portfolio",
           tabBarIcon: ({ color }) => (
-            <MaterialIcons name="explore" size={24} color={color} />
+            <MaterialIcons
+              name="account-balance-wallet"
+              size={24}
+              color={color}
+            />
           ),
         }}
       />

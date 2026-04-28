@@ -4,13 +4,14 @@ import { Colors } from "./Colors";
 export const GlobalStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.background,
+    // backgroundColor: Colors.background,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   content: {
     flex: 1,
     paddingHorizontal: 16,
-    zIndex: 1, // Ensures content stays above background dots
+    zIndex: 1,
+    marginTop: 20,
   },
   label: {
     fontSize: 11,
