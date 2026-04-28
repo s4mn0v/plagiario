@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { MaterialIcons, Ionicons } from "@expo/vector-icons";
 import { TradersStyles } from "../constants/TradersStyles";
 import { Colors } from "@/constants/Colors";
+import { useRouter } from "expo-router";
 
 interface TraderProps {
   id: string;
@@ -25,6 +26,7 @@ export const TraderCard = ({
     type === "LONG" ? "rgba(0, 165, 114, 0.1)" : "rgba(255, 84, 81, 0.1)";
   const typeBorder =
     type === "LONG" ? "rgba(78, 222, 163, 0.2)" : "rgba(255, 179, 173, 0.2)";
+  const router = useRouter();
 
   return (
     <View style={TradersStyles.card}>
@@ -73,6 +75,7 @@ export const TraderCard = ({
         <TouchableOpacity
           style={TradersStyles.secondaryButton}
           activeOpacity={0.7}
+          onPress={() => router.push(`/trader/${id}`)}
         >
           <Text style={TradersStyles.secondaryButtonText}>DETAILS</Text>
         </TouchableOpacity>

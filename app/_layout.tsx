@@ -1,23 +1,21 @@
+// app/_layout.tsx
 import { Stack } from "expo-router";
 import { ThemeProvider, DarkTheme } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 
-// 1. Define your global colors here
 const MyGlobalTheme = {
   ...DarkTheme,
   colors: {
     ...DarkTheme.colors,
-    background: "#050505", // Global background
-    primary: "#007AFF", // Global blue accent
-    card: "#121212", // Global background for Headers/Tabs
-    text: "#FFFFFF", // Global text color
-    border: "#262626", // Global border color
+    background: "#050505",
+    card: "#121212",
+    text: "#FFFFFF",
+    border: "#262626",
   },
 };
 
 export default function RootLayout() {
   return (
-    // 2. Wrap the app in the ThemeProvider
     <ThemeProvider value={MyGlobalTheme}>
       <StatusBar style="light" />
       <Stack
@@ -28,6 +26,16 @@ export default function RootLayout() {
         }}
       >
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+
+        {/* The Modal Route */}
+        <Stack.Screen
+          name="trader/[id]"
+          options={{
+            presentation: "modal",
+            headerTitle: "Trader Profile",
+            headerLeft: () => null, // Optional: hide back button if using swipe-to-dismiss
+          }}
+        />
       </Stack>
     </ThemeProvider>
   );
