@@ -108,16 +108,6 @@ export const ProfileStyles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: Colors.border,
   },
-  executionCard: {
-    width: "100%",
-    backgroundColor: Colors.surface,
-    borderWidth: 1,
-    borderColor: Colors.primaryMuted,
-    padding: 24,
-    borderRadius: 4,
-    marginBottom: 20,
-  },
-
   // Horizontal Stats Row
   statsRow: {
     width: "100%",
@@ -177,6 +167,7 @@ export const ProfileStyles = StyleSheet.create({
     borderColor: Colors.primaryMuted,
     padding: 24,
     borderRadius: 4,
+    marginBottom: 20,
   },
   inputWrapper: {
     flexDirection: "row",
