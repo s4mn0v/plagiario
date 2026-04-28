@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { FlatList, View, Text, StyleSheet } from "react-native";
-// ERROR FIX: Must use curly braces { Picker }
 import { Picker } from "@react-native-picker/picker";
-import { GlobalStyles } from "../../constants/GlobalStyles";
+import { GlobalStyles as Styles } from "../../constants/GlobalStyles";
 import { TraderCard } from "../../components/TraderCard";
 import { DotBackground } from "@/components/DotBackground";
 import { Colors } from "@/constants/Colors";
@@ -35,16 +34,16 @@ export default function HomeScreen() {
   const [selectedValue, setSelectedValue] = useState("risk");
 
   return (
-    <View style={GlobalStyles.container}>
+    <View style={Styles.container}>
       <DotBackground />
-      <View style={GlobalStyles.content}>
+      <View style={Styles.content}>
         <FlatList
           data={TRADERS_DATA}
           keyExtractor={(item) => item.id}
           ListHeaderComponent={() => (
             <View style={{ marginBottom: 24, marginTop: 20 }}>
-              <Text style={GlobalStyles.label}>Scanner Engine</Text>
-              <Text style={GlobalStyles.title}>Discover Traders</Text>
+              <Text style={Styles.label}>Scanner Engine</Text>
+              <Text style={Styles.title}>Discover Traders</Text>
 
               {/* NATIVE PICKER CONTAINER */}
               <View style={styles.pickerWrapper}>
@@ -87,7 +86,6 @@ export default function HomeScreen() {
             </View>
           )}
           renderItem={({ item }) => <TraderCard {...item} />}
-          contentContainerStyle={{ paddingBottom: 100 }}
         />
       </View>
     </View>

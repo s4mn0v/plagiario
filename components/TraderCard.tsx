@@ -19,6 +19,13 @@ export const TraderCard = ({
   isWhale,
   type,
 }: TraderProps) => {
+  // Define dynamic colors based on type
+  const typeColor = type === "LONG" ? "#4edea3" : "#ffb3ad";
+  const typeBg =
+    type === "LONG" ? "rgba(0, 165, 114, 0.1)" : "rgba(255, 84, 81, 0.1)";
+  const typeBorder =
+    type === "LONG" ? "rgba(78, 222, 163, 0.2)" : "rgba(255, 179, 173, 0.2)";
+
   return (
     <View style={TradersStyles.card}>
       {/* Header */}
@@ -30,12 +37,22 @@ export const TraderCard = ({
           </View>
         </View>
 
-        {isWhale && (
-          <View style={TradersStyles.badge}>
-            <MaterialIcons name="water-drop" size={12} color="#4edea3" />
-            <Text style={TradersStyles.badgeText}>Whale Aligned</Text>
-          </View>
-        )}
+        {/* Replaced Whale badge with Long/Short Badge */}
+        <View
+          style={[
+            TradersStyles.badge,
+            { backgroundColor: typeBg, borderColor: typeBorder },
+          ]}
+        >
+          <MaterialIcons
+            name={type === "LONG" ? "trending-up" : "trending-down"}
+            size={14}
+            color={typeColor}
+          />
+          <Text style={[TradersStyles.badgeText, { color: typeColor }]}>
+            {type}
+          </Text>
+        </View>
       </View>
 
       {/* Stats */}
@@ -50,22 +67,7 @@ export const TraderCard = ({
         </View>
       </View>
 
-      {/* Strategy Indicator */}
       <View style={TradersStyles.divider} />
-      <View style={TradersStyles.footer}>
-        <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
-          <MaterialIcons
-            name={type === "LONG" ? "trending-up" : "trending-down"}
-            size={18}
-            color={type === "LONG" ? "#4edea3" : "#ffb3ad"}
-          />
-          <Text style={[TradersStyles.labelCaps, { color: "#FFF" }]}>
-            {type}
-          </Text>
-        </View>
-        {/* Placeholder for Sparkline SVG */}
-        <View style={{ width: 80, height: 30, backgroundColor: "#1A1A1A" }} />
-      </View>
 
       <View style={TradersStyles.buttonRow}>
         <TouchableOpacity

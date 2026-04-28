@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "plagiario",
-    "slug": "plagiario",
+    "name": "copy-trading",
+    "slug": "copy-trading",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/plagiario.png",
-    "scheme": "plagiario",
+    "icon": "./assets/images/copy-trading.png",
+    "scheme": "copy-trading",
     "userInterfaceStyle": "dark",
     "newArchEnabled": true,
     "ios": {
