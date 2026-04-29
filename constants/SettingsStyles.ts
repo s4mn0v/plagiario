@@ -167,4 +167,64 @@ export const SettingsStyles = StyleSheet.create({
     letterSpacing: 1,
     textTransform: "uppercase",
   },
+  leverageCard: {
+    // This will span full width in our bento grid
+    width: "100%",
+  },
+  leverageHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 20,
+  },
+  leverageToggleContainer: {
+    flexDirection: "row",
+    gap: 20,
+    marginBottom: 24,
+  },
+  radioButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+  },
+  radioCircle: {
+    width: 18,
+    height: 18,
+    borderRadius: 9,
+    borderWidth: 2,
+    borderColor: Colors.border,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  radioCircleActive: {
+    borderColor: Colors.primary,
+  },
+  radioInner: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: Colors.primary,
+  },
+  leverageDisplayArea: {
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 10,
+  },
+  leverageValueText: {
+    fontSize: 48,
+    fontWeight: "800",
+    color: Colors.primary,
+    fontFamily: Platform.OS === "ios" ? "Menlo" : "monospace",
+  },
+  sliderTrack: {
+    width: "100%",
+    height: 40,
+    marginTop: 10,
+  },
+  rangeLabels: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+    marginTop: -5,
+  },
 });

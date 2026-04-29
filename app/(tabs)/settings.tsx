@@ -6,23 +6,18 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
+import Slider from "@react-native-community/slider";
 import { MaterialIcons } from "@expo/vector-icons";
 import { DotBackground } from "@/components/DotBackground";
 import { GlobalStyles } from "@/constants/GlobalStyles";
 import { SettingsStyles as styles } from "@/constants/SettingsStyles";
 import { Colors } from "@/constants/Colors";
-import Dropdown, { DropdownOption } from "@/components/Dropdown";
-
-const TEST: DropdownOption[] = [
-  { label: "Test 1", value: "test1" },
-  { label: "Test 2", value: "test2" },
-  { label: "Test 3", value: "test3" },
-];
 
 export default function SettingsScreen() {
   const [showSecret, setShowSecret] = useState(false);
   const [marginMode, setMarginMode] = useState("follow");
-  const [filter, setFilter] = useState("roi");
+  const [leverageType, setLeverageType] = useState("fixed");
+  const [leverageValue, setLeverageValue] = useState(10);
 
   return (
     <View style={GlobalStyles.container}>
@@ -105,17 +100,6 @@ export default function SettingsScreen() {
           </View>
         </View>
 
-        {/* 2. FILTER */}
-        <View style={styles.section}>
-          <Text style={styles.sectionLabel}>Filter</Text>
-          <Dropdown
-            style={{ marginVertical: 15 }}
-            options={TEST}
-            onSelect={(value) => setFilter(value)}
-            selectedValue={filter}
-          />
-        </View>
-
         {/* 2. TRADING PARAMETERS */}
         <View style={styles.section}>
           <Text style={[styles.sectionLabel, { marginBottom: 16 }]}>
@@ -175,6 +159,93 @@ export default function SettingsScreen() {
                 isActive={marginMode === "isolated"}
                 onPress={() => setMarginMode("isolated")}
               />
+            </View>
+
+            {/* Leverage */}
+            <View style={[styles.bentoCard, styles.leverageCard]}>
+              <Text style={[styles.inputLabel, { marginBottom: 20 }]}>
+                Leverage Configuration
+              </Text>
+
+              <View style={styles.leverageToggleContainer}>
+                <TouchableOpacity
+                  style={styles.radioButton}
+                  onPress={() => setLeverageType("fixed")}
+                >
+                  <View
+                    style={[
+                      styles.radioCircle,
+                      leverageType === "fixed" && styles.radioCircleActive,
+                    ]}
+                  >
+                    {leverageType === "fixed" && (
+                      <View style={styles.radioInner} />
+                    )}
+                  </View>
+                  <Text
+                    style={[
+                      styles.modeText,
+                      leverageType === "fixed" && styles.modeTextActive,
+                    ]}
+                  >
+                    Fixed Leverage
+                  </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  style={styles.radioButton}
+                  onPress={() => setLeverageType("trader")}
+                >
+                  <View
+                    style={[
+                      styles.radioCircle,
+                      leverageType === "trader" && styles.radioCircleActive,
+                    ]}
+                  >
+                    {leverageType === "trader" && (
+                      <View style={styles.radioInner} />
+                    )}
+                  </View>
+                  <Text
+                    style={[
+                      styles.modeText,
+                      leverageType === "trader" && styles.modeTextActive,
+                    ]}
+                  >
+                    Trader's Leverage
+                  </Text>
+                </TouchableOpacity>
+              </View>
+
+              {/* Slider Section - only active if type is fixed */}
+              <View
+                style={[
+                  styles.leverageDisplayArea,
+                  leverageType === "trader" && { opacity: 0.3 },
+                ]}
+              >
+                <Text style={styles.leverageValueText}>{leverageValue}x</Text>
+
+                <Slider
+                  style={styles.sliderTrack}
+                  minimumValue={1}
+                  maximumValue={125}
+                  step={1}
+                  value={leverageValue}
+                  onValueChange={setLeverageValue}
+                  disabled={leverageType === "trader"}
+                  minimumTrackTintColor={Colors.primary}
+                  maximumTrackTintColor={Colors.border}
+                  thumbTintColor={
+                    leverageType === "fixed" ? Colors.primary : Colors.border
+                  }
+                />
+
+                <View style={styles.rangeLabels}>
+                  <Text style={styles.badgeText}>1x</Text>
+                  <Text style={styles.badgeText}>125x</Text>
+                </View>
+              </View>
             </View>
 
             {/* Equity Guardian */}
