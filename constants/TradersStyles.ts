@@ -82,6 +82,8 @@ export const TradersStyles = StyleSheet.create({
     paddingVertical: 12,
     alignItems: "center",
     justifyContent: "center",
+    borderWidth: 1,
+    borderColor: Colors.primaryMuted,
   },
   copyButton: {
     flex: 1,
@@ -93,7 +95,7 @@ export const TradersStyles = StyleSheet.create({
     gap: 8,
   },
   secondaryButtonText: {
-    color: Colors.textMuted,
+    color: Colors.textMain,
     fontSize: 12,
     fontWeight: "700",
     letterSpacing: 2,
