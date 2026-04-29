@@ -112,24 +112,62 @@ export default function TraderProfile() {
         {/* LIVE POSITIONS */}
         <View style={styles.sectionCard}>
           <Text style={styles.tableTitle}>Live Positions</Text>
-          <PositionRow
-            symbol="BTCUSDT"
-            side="LONG 50X"
-            price="64,281.40"
-            color={Colors.secondary}
-          />
-          <PositionRow
-            symbol="ETHUSDT"
-            side="SHORT 20X"
-            price="3,452.12"
-            color={Colors.error}
-          />
-          <PositionRow
-            symbol="SOLUSDT"
-            side="LONG 10X"
-            price="142.05"
-            color={Colors.secondary}
-          />
+          <View style={styles.positionsScrollArea}>
+            <ScrollView
+              nestedScrollEnabled={true} // Essential for Android nested scrolling
+              showsVerticalScrollIndicator={true} // Show scrollbar to indicate more items
+              persistentScrollbar={true} // Keep scrollbar visible on Android
+            >
+              <PositionRow
+                symbol="BTCUSDT"
+                side="LONG 50X"
+                price="64,281.40"
+                color={Colors.secondary}
+              />
+              <PositionRow
+                symbol="ETHUSDT"
+                side="SHORT 20X"
+                price="3,452.12"
+                color={Colors.error}
+              />
+              <PositionRow
+                symbol="SOLUSDT"
+                side="LONG 10X"
+                price="142.05"
+                color={Colors.secondary}
+              />
+              <PositionRow
+                symbol="SOLUSDT"
+                side="LONG 10X"
+                price="142.05"
+                color={Colors.secondary}
+              />
+              <PositionRow
+                symbol="SOLUSDT"
+                side="LONG 10X"
+                price="142.05"
+                color={Colors.secondary}
+              />
+              <PositionRow
+                symbol="SOLUSDT"
+                side="LONG 10X"
+                price="142.05"
+                color={Colors.secondary}
+              />
+              <PositionRow
+                symbol="SOLUSDT"
+                side="LONG 10X"
+                price="142.05"
+                color={Colors.secondary}
+              />
+              <PositionRow
+                symbol="SOLUSDT"
+                side="LONG 10X"
+                price="142.05"
+                color={Colors.secondary}
+              />
+            </ScrollView>
+          </View>
         </View>
 
         {/* DIRECT COPY EXECUTION CARD (Inside ScrollView at the end) */}

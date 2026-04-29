@@ -98,6 +98,27 @@ export const ProfileStyles = StyleSheet.create({
     marginRight: 4,
   },
 
+  positionsScrollArea: {
+    maxHeight: 220,
+    marginTop: 10,
+  },
+  indicatorTrack: {
+    width: 2,
+    backgroundColor: "#1A1A1A", // Dark track
+    borderRadius: 1,
+    position: "absolute",
+    right: -8, // Positioned slightly outside the list
+    top: 0,
+    bottom: 0,
+  },
+  indicatorThumb: {
+    width: 2,
+    backgroundColor: Colors.primary, // Your custom color (e.g., Mint Green)
+    borderRadius: 1,
+    position: "absolute",
+    right: 0,
+  },
+
   pinnedExecutionWrapper: {
     padding: 16,
     backgroundColor: Colors.background,
