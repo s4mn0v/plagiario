@@ -4,7 +4,6 @@ import { Colors } from "./Colors";
 export const ProfileStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.background,
   },
   content: {
     padding: 16,
@@ -23,10 +22,7 @@ export const ProfileStyles = StyleSheet.create({
     alignItems: "center",
     marginTop: 20,
     // Subtle glow effect
-    shadowColor: Colors.primary,
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.1,
-    shadowRadius: 20,
+    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
     elevation: 5,
   },
   avatarBox: {
@@ -138,8 +134,6 @@ export const ProfileStyles = StyleSheet.create({
   sectionCard: {
     width: "100%",
     backgroundColor: Colors.surface,
-    borderWidth: 1,
-    borderColor: Colors.border,
     padding: 20,
     marginBottom: 24,
   },

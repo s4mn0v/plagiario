@@ -79,7 +79,6 @@ export const TraderCard = ({
         >
           <Text style={TradersStyles.secondaryButtonText}>DETAILS</Text>
         </TouchableOpacity>
-
         <TouchableOpacity style={TradersStyles.copyButton} activeOpacity={0.8}>
           <Ionicons name="copy-outline" size={16} color={Colors.background} />
           <Text style={TradersStyles.copyButtonText}>COPY</Text>

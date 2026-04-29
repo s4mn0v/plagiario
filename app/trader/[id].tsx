@@ -9,14 +9,11 @@ import {
   Platform,
   Keyboard,
 } from "react-native";
-import { useLocalSearchParams } from "expo-router";
 import { Svg, Rect, Path } from "react-native-svg";
 import { ProfileStyles as styles } from "../../constants/TraderProfileStyles";
 import { Colors } from "@/constants/Colors";
 
 export default function TraderProfile() {
-  const { id } = useLocalSearchParams();
-
   // 1. Create a reference to the ScrollView
   const scrollViewRef = useRef<ScrollView>(null);
 

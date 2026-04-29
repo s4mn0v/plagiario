@@ -8,6 +8,7 @@ export const Colors = {
   textMuted: "#285A48",
   textDim: "#404040",
   error: "#ffb4ab",
+  warning: "#ffd700",
   outline: "#89938d",
 
   secondary: "#4edea3",

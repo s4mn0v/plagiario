@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { FlatList, View, Text, StyleSheet } from "react-native";
-import { Picker } from "@react-native-picker/picker";
+import { FlatList, View, Text } from "react-native";
 import { GlobalStyles as Styles } from "../../constants/GlobalStyles";
 import { TraderCard } from "../../components/TraderCard";
 import { DotBackground } from "@/components/DotBackground";
-import { Colors } from "@/constants/Colors";
+import Dropdown, { DropdownOption } from "@/components/Dropdown";
 
 const TRADERS_DATA = [
   {
@@ -30,8 +29,13 @@ const TRADERS_DATA = [
   },
 ];
 
+const FILTER_OPTIONS: DropdownOption[] = [
+  { label: "BEST ROI", value: "roi" },
+  { label: "LOWEST RISK", value: "risk" },
+];
+
 export default function HomeScreen() {
-  const [selectedValue, setSelectedValue] = useState("risk");
+  const [filter, setFilter] = useState("roi");
 
   return (
     <View style={Styles.container}>
@@ -41,48 +45,18 @@ export default function HomeScreen() {
           data={TRADERS_DATA}
           keyExtractor={(item) => item.id}
           ListHeaderComponent={() => (
-            <View style={{ marginBottom: 24, marginTop: 20 }}>
+            <View>
               <Text style={Styles.label}>Scanner Engine</Text>
               <Text style={Styles.title}>Discover Traders</Text>
 
               {/* NATIVE PICKER CONTAINER */}
-              <View style={styles.pickerWrapper}>
-                <Picker
-                  selectedValue={selectedValue}
-                  onValueChange={(itemValue) => setSelectedValue(itemValue)}
-                  style={styles.picker}
-                  dropdownIconColor={Colors.primary}
-                  mode="dropdown" // Android specific
-                >
-                  <Picker.Item
-                    label="BEST ROI"
-                    value="roi"
-                    color={Colors.primary}
-                    style={{
-                      backgroundColor: Colors.background,
-                      color: Colors.primary,
-                    }}
-                  />
-                  <Picker.Item
-                    label="LOWEST RISK"
-                    value="risk"
-                    color={Colors.primary}
-                    style={{
-                      backgroundColor: Colors.background,
-                      color: Colors.primary,
-                    }}
-                  />
-                  <Picker.Item
-                    label="WHALE ALIGNED"
-                    value="whale"
-                    color={Colors.primary}
-                    style={{
-                      backgroundColor: Colors.background,
-                      color: Colors.primary,
-                    }}
-                  />
-                </Picker>
-              </View>
+              <Dropdown
+                style={{ marginVertical: 20 }}
+                options={FILTER_OPTIONS}
+                selectedValue={filter}
+                onSelect={(val) => setFilter(val)}
+                placeholder="SORT BY"
+              />
             </View>
           )}
           renderItem={({ item }) => <TraderCard {...item} />}
@@ -91,19 +65,3 @@ export default function HomeScreen() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  pickerWrapper: {
-    marginTop: 16,
-    backgroundColor: Colors.surface,
-    borderWidth: 1,
-    borderColor: Colors.border,
-    height: 50,
-    justifyContent: "center",
-  },
-  picker: {
-    color: Colors.primary,
-    width: "100%",
-    backgroundColor: "transparent",
-  },
-});

@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import Svg, { Rect, Defs, Pattern, Circle } from "react-native-svg";
-// import { Colors } from "../constants/Colors";
 
 export const DotBackground = () => (
   <View style={StyleSheet.absoluteFillObject}>
